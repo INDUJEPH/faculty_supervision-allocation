@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Exam Management System
 
 A comprehensive system for managing exams, students, faculty, and classrooms.
@@ -122,3 +123,6 @@ After starting both servers:
 ### Exams
 - GET `/api/exams` - Get all exams
 - GET `/api/exams/:id` - Get exam by ID
+=======
+# faculty_supervision-allocation
+>>>>>>> 926299cb343dbad8d3c4732a163a6412e7806127
