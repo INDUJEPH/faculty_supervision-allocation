@@ -1,0 +1,5 @@
+name,department,designation,email,phone,experience,shift_preference,max_supervisions
+Dr. Richard Davis,computer science,Professor,richard.davis@university.edu,555-5001,15,full,5
+Dr. Jennifer Wilson,computer science,Associate Professor,jennifer.wilson@university.edu,555-5002,10,full,4
+Dr. Michael Thompson,computer science,Assistant Professor,michael.thompson@university.edu,555-5003,7,half,3
+Prof. Elizabeth Roberts,computer science,Senior Lecturer,elizabeth.roberts@university.edu,555-5004,12,full,4 

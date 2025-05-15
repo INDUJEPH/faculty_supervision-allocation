@@ -1,69 +1,124 @@
-# Welcome to your Lovable project
+# Exam Management System
 
-## Project info
+A comprehensive system for managing exams, students, faculty, and classrooms.
 
-**URL**: https://lovable.dev/projects/baf9e39e-3312-490b-8a57-6f9ac8a56098
+## Features
 
-## How can I edit this code?
+- Dashboard with statistics and charts
+- Student management
+- Faculty management
+- Classroom management
+- Exam scheduling and management
+- Supervision assignment
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/baf9e39e-3312-490b-8a57-6f9ac8a56098) and start prompting.
+- Node.js (v14 or higher)
+- MySQL database
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/exam-management-system.git
+cd exam-management-system
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. Install dependencies for backend and frontend
+```bash
+# Install backend dependencies
+cd backend
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Install frontend dependencies
+cd ../frontend
+npm install
+```
 
-Follow these steps:
+3. Set up the database
+```bash
+# Create a MySQL database named 'exam_manage'
+mysql -u root -p
+CREATE DATABASE exam_manage;
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+4. Configure environment variables
+```bash
+# Copy the sample .env file
+cp backend/.env.example backend/.env
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Edit the .env file with your database credentials
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+5. Start the development servers
+```bash
+# Start backend server
+cd backend
+npm run dev
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start frontend server
+cd ../frontend
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Loading Sample Data
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The application comes with a sample data seeding script that will populate your database with realistic test data.
 
-**Use GitHub Codespaces**
+### To load sample data:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Ensure your database is set up and your backend server can connect to it
+2. Run the seeding script:
+```bash
+cd backend
+npm run seed
+```
 
-## What technologies are used for this project?
+This will add:
+- 40 Students across 4 departments
+- 20 Faculty members across 4 departments
+- 20 Classrooms with different capacities
+- 14 Exams (past, current, and future)
 
-This project is built with .
+### Sample Data Details
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Students**: Distributed across Computer Science, Electronics, Electrical, and Mechanical departments in various semesters
+- **Faculty**: Professors, Associate Professors, Assistant Professors, and Lecturers from all departments
+- **Classrooms**: Various sizes from 20 to 100 seats
+- **Exams**: Mix of past, current and upcoming exams with different types (regular, backlog, special)
 
-## How can I deploy this project?
+## Usage
 
-Simply open [Lovable](https://lovable.dev/projects/baf9e39e-3312-490b-8a57-6f9ac8a56098) and click on Share -> Publish.
+After starting both servers:
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3001
 
-## I want to use a custom domain - is that possible?
+## API Endpoints
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+### Dashboard
+- GET `/api/dashboard/stats` - Get dashboard statistics
+- GET `/api/dashboard/department-stats` - Get department-wise statistics
+- GET `/api/dashboard/semester-stats` - Get semester-wise statistics
+- GET `/api/dashboard/faculty-stats` - Get faculty statistics
+- GET `/api/dashboard/upcoming-exams` - Get upcoming exams
+
+### Students
+- GET `/api/students` - Get all students
+- GET `/api/students/:id` - Get student by ID
+- POST `/api/students/upload` - Upload students via CSV
+
+### Faculty
+- GET `/api/faculty` - Get all faculty members
+- GET `/api/faculty/:id` - Get faculty by ID
+- POST `/api/faculty/upload` - Upload faculty via CSV
+
+### Classrooms
+- GET `/api/classrooms` - Get all classrooms
+- GET `/api/classrooms/:id` - Get classroom by ID
+- POST `/api/classrooms/upload` - Upload classrooms via CSV
+
+### Exams
+- GET `/api/exams` - Get all exams
+- GET `/api/exams/:id` - Get exam by ID
